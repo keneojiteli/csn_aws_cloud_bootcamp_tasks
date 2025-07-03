@@ -1,9 +1,10 @@
 # Task: Configure AWS Identity Center in your account. Create a new user and assign them a permission set using the predefined SecurityAudit job function policy
 
-AWS IAM Identity Center (successor to AWS SSO) is a service that provides a central place to manage workforce identities and their access to multiple AWS accounts and applications.
+AWS IAM Identity Centre (formerly AWS SSO) is a service that provides a central place to manage workforce identities and their access to multiple AWS accounts and applications.
 
 ## Steps
 - Navigate to IAM Identity Center from IAM dashboard or search for via the search bar. An instance of this service has to be enabled with organisations.
+![csn_wk2](https://github.com/user-attachments/assets/9d0281fe-7dc4-4a27-846a-d1d7ff4f11f6)
 
 ![csn_wk2](./img/csn_wk2.png)
 
