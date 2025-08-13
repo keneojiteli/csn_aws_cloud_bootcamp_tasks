@@ -6,5 +6,6 @@ The tasks from the Cloud Security Bootcamp primarily focus on the AWS cloud plat
 - [Task 4: VPC peering - Building a Secure and Scalable AWS Network Using VPCs, Subnets, and Routing Controls](task4-vpc-peering)
 - [Task 5: Deploying containerized applications using Amazon ECS, and task definitions](task5-containerise-with-aws-ecs)
 - [Task 7: Monitoring, Logging, and Auditing AWS Resources Using Amazon CloudWatch and AWS CloudTrail](task7-monitoring-with-cloudwatch)
+- [Task 8: Managing Static and Dynamic Content Delivery with Amazon S3 and CloudFront Integration](task8-s3-with-cloudfront)
 
 
