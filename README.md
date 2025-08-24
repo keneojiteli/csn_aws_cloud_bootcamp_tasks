@@ -8,6 +8,7 @@ The tasks from the Cloud Security Bootcamp primarily focus on the AWS cloud plat
 - [Task 6: Configuring ECS Services to Communicate with RDS Databases Securely within a Private VPC](task6-ecs-with-rdb)
 - [Task 7: Monitoring, Logging, and Auditing AWS Resources Using Amazon CloudWatch and AWS CloudTrail](task7-monitoring-with-cloudwatch)
 - [Task 8: Managing Static and Dynamic Content Delivery with Amazon S3 and CloudFront Integration](task8-s3-with-cloudfront)
+- [Task 9: Domain Management with Route 53 and SSL/TLS Certificate Handling with AWS Certificate Manager](task9-domain-with-route53)
 - [Task 10: Building Event-Driven Workflows with AWS Lambda and Service Integrations](task10-lambda-functions)
 
 
