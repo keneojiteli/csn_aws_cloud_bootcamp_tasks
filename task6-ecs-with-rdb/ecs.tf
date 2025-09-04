@@ -22,12 +22,12 @@ resource "aws_ecs_task_definition" "ecs_task_def" {
   memory                   = "4096"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   task_role_arn = aws_iam_role.ecs_task_role.arn
-
   
 
   container_definitions = jsonencode([{
-    name      = "ecs-container"
+    name      = "metabase"
     image     = "metabase/metabase:latest"  
+    # image     = "grafana/grafana:latest"  
     cpu       = 1024
     memory    = 4096
     essential = true
@@ -43,11 +43,11 @@ resource "aws_ecs_task_definition" "ecs_task_def" {
       },
       {
         name  = "MB_DB_HOST"
-        value = aws_db_instance.my_db.endpoint # rds endpoint, change attribute from address to endpoint
-        # value = "postgres-db.ckdksg0ommml.us-east-1.rds.amazonaws.com" # rds endpoint, change attribute from address to endpoint
+        # value = aws_db_instance.my_db.endpoint # rds endpoint, change attribute from address to endpoint
+        value = "postgres-db.cgja2cwawwu8.us-east-1.rds.amazonaws.com" # rds endpoint, change attribute from address to endpoint
       },
       {
-        name  = "MB_DB_PORT"
+        name  = "MB_DB_PORT"     
         value = "5432"
       },
       {
@@ -59,7 +59,7 @@ resource "aws_ecs_task_definition" "ecs_task_def" {
         value = var.db_password
       },
       {
-        name  = "MB_DB_NAME"
+        name  = "MB_DB_DBNAME"   # !MB_DB_NAME
         value = var.db_name
       }
     ]
@@ -91,7 +91,8 @@ resource "aws_ecs_service" "ecs_service" {
     
     network_configuration {
         subnets          = [for s in aws_subnet.public_subnet : s.id]
-        security_groups  = [aws_security_group.ecs_sg.id]
+        # security_groups  = [aws_security_group.ecs_sg.id]
+        security_groups  = [aws_security_group.alb_sg.id]
         assign_public_ip = true
     }
     

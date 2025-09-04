@@ -56,10 +56,12 @@ In the security group, the Application Load Balancer accepts HTTP traffic as it 
 - Security group rules allowing traffic from ECS to RDS on port 5432.
 ![csn1-7_wk6](img/csn1-7_wk6.png)
 
-- Metabase setup screen confirming a successful connection to the database: unfortunately, I was not able to successfully access metabase because of failed health/start checks
+- Metabase setup screen confirming a successful connection to the database: unfortunately, I was not able to successfully access metabase because of failed health/start checks - **this is still being debugged by the way, I will update as soon as it is fixed**
 ![csn2_wk6](img/csn2_wk6.png)
 
 #### Proactive steps I took to debug connection between Metabase and Database
+- I figured I was attaching the security group to the particular resource that owns it (eg, I attached the ecs_sg to the ecs resource, instead of attaching it to the rds resource).
+- I used a wrong environment variable: `MB_DB_NAME` instead of `MB_DB_DBNAME`  
 - I created a `cloudwatch` resource to check my logs to verify why my tasks were failing.
 - I tweaked my `engine_version`  to use various valid versions.
 - I ensured I used the correct environment variables names and values in my task definition.

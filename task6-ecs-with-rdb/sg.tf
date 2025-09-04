@@ -28,7 +28,7 @@ resource "aws_security_group" "ecs_sg" {
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
-    # cidr_blocks = ["0.0.0.0/0"] #try this without lb
+    # cidr_blocks = ["0.0.0.0/0"] # use this without lb
     security_groups = [aws_security_group.alb_sg.id] # Allow traffic from the ALB security group
   }
 

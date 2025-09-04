@@ -22,11 +22,11 @@ resource "aws_lb_target_group" "lb_tg" {
   vpc_id = aws_vpc.ecs_vpc.id
 
   health_check {
-    path                = "/"
+    path                = "/api/health"
     interval            = 30
     timeout             = 10
     healthy_threshold   = 5
-    unhealthy_threshold = 2
+    unhealthy_threshold = 5
     matcher             = "200-399" # HTTP status codes to consider healthy
     }
     
@@ -35,10 +35,9 @@ resource "aws_lb_target_group" "lb_tg" {
   }
 }
 
-# provides a load balancer listener resource
+# provides a load balancer listener resource to listen for client's request, routes to targets in a target grp
 resource "aws_lb_listener" "lb_listener" {
   load_balancer_arn = aws_lb.ecs_lb.arn
-
   port = 80 # listens on either port 80 /443
   protocol = "HTTP"
 

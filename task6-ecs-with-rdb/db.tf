@@ -17,7 +17,8 @@ resource "aws_db_instance" "my_db" {
   allocated_storage       = 20
   storage_type            = "gp2"
   db_subnet_group_name    = aws_db_subnet_group.rds_subnet_group.name
-  vpc_security_group_ids  = [aws_security_group.rds_sg.id]
+  # vpc_security_group_ids  = [aws_security_group.rds_sg.id]
+  vpc_security_group_ids  = [aws_security_group.ecs_sg.id]
   username                = var.db_username
   password                = var.db_password
   db_name                 = var.db_name
